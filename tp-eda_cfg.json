@@ -1,0 +1,602 @@
+{
+  "uri": "",
+  "filename": "",
+  "user": "",
+  "columns": [
+    {
+      "name": "id",
+      "rename": "id",
+      "selected": 0
+    },
+    {
+      "name": "title",
+      "rename": "title",
+      "selected": 0
+    },
+    {
+      "name": "condition",
+      "rename": "condition",
+      "selected": 1
+    },
+    {
+      "name": "thumbnail_id",
+      "rename": "thumbnail_id",
+      "selected": 0
+    },
+    {
+      "name": "catalog_product_id",
+      "rename": "catalog_product_id",
+      "selected": 0
+    },
+    {
+      "name": "listing_type_id",
+      "rename": "listing_type_id",
+      "selected": 0
+    },
+    {
+      "name": "permalink",
+      "rename": "permalink",
+      "selected": 0
+    },
+    {
+      "name": "buying_mode",
+      "rename": "buying_mode",
+      "selected": 1
+    },
+    {
+      "name": "site_id",
+      "rename": "site_id",
+      "selected": 0
+    },
+    {
+      "name": "category_id",
+      "rename": "category_id",
+      "selected": 1
+    },
+    {
+      "name": "domain_id",
+      "rename": "domain_id",
+      "selected": 0
+    },
+    {
+      "name": "thumbnail",
+      "rename": "thumbnail",
+      "selected": 0
+    },
+    {
+      "name": "currency_id",
+      "rename": "currency_id",
+      "selected": 0
+    },
+    {
+      "name": "order_backend",
+      "rename": "order_backend",
+      "selected": 0
+    },
+    {
+      "name": "price",
+      "rename": "price",
+      "selected": 1
+    },
+    {
+      "name": "original_price",
+      "rename": "original_price",
+      "selected": 0
+    },
+    {
+      "name": "sale_price",
+      "rename": "sale_price",
+      "selected": 0
+    },
+    {
+      "name": "sold_quantity",
+      "rename": "sold_quantity",
+      "selected": 0
+    },
+    {
+      "name": "available_quantity",
+      "rename": "available_quantity",
+      "selected": 1
+    },
+    {
+      "name": "official_store_id",
+      "rename": "official_store_id",
+      "selected": 0
+    },
+    {
+      "name": "use_thumbnail_id",
+      "rename": "use_thumbnail_id",
+      "selected": 0
+    },
+    {
+      "name": "accepts_mercadopago",
+      "rename": "accepts_mercadopago",
+      "selected": 0
+    },
+    {
+      "name": "tags",
+      "rename": "tags",
+      "selected": 0
+    },
+    {
+      "name": "stop_time",
+      "rename": "stop_time",
+      "selected": 0
+    },
+    {
+      "name": "attributes",
+      "rename": "attributes",
+      "selected": 0
+    },
+    {
+      "name": "winner_item_id",
+      "rename": "winner_item_id",
+      "selected": 0
+    },
+    {
+      "name": "catalog_listing",
+      "rename": "catalog_listing",
+      "selected": 0
+    },
+    {
+      "name": "discounts",
+      "rename": "discounts",
+      "selected": 0
+    },
+    {
+      "name": "promotions",
+      "rename": "promotions",
+      "selected": 0
+    },
+    {
+      "name": "inventory_id",
+      "rename": "inventory_id",
+      "selected": 0
+    },
+    {
+      "name": "shipping.store_pick_up",
+      "rename": "store_pick_up",
+      "selected": 1
+    },
+    {
+      "name": "shipping.free_shipping",
+      "rename": "free_shipping",
+      "selected": 1
+    },
+    {
+      "name": "shipping.logistic_type",
+      "rename": "logistic_type",
+      "selected": 0
+    },
+    {
+      "name": "shipping.mode",
+      "rename": "mode",
+      "selected": 0
+    },
+    {
+      "name": "shipping.tags",
+      "rename": "shipping.tags",
+      "selected": 0
+    },
+    {
+      "name": "shipping.promise",
+      "rename": "shipping.promise",
+      "selected": 0
+    },
+    {
+      "name": "seller.id",
+      "rename": "seller.id",
+      "selected": 1
+    },
+    {
+      "name": "seller.nickname",
+      "rename": "seller.nickname",
+      "selected": 0
+    },
+    {
+      "name": "seller.car_dealer",
+      "rename": "seller_car_dealer",
+      "selected": 0
+    },
+    {
+      "name": "seller.real_estate_agency",
+      "rename": "seller.real_estate_agency",
+      "selected": 0
+    },
+    {
+      "name": "seller._",
+      "rename": "seller._",
+      "selected": 0
+    },
+    {
+      "name": "seller.registration_date",
+      "rename": "seller.registration_date",
+      "selected": 0
+    },
+    {
+      "name": "seller.tags",
+      "rename": "seller.tags",
+      "selected": 0
+    },
+    {
+      "name": "seller.car_dealer_logo",
+      "rename": "seller.car_dealer_logo",
+      "selected": 0
+    },
+    {
+      "name": "seller.permalink",
+      "rename": "seller.permalink",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.level_id",
+      "rename": "seller_level_id",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.power_seller_status",
+      "rename": "power_seller_status",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.transactions.canceled",
+      "rename": "seller_trans_canceled",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.transactions.completed",
+      "rename": "seller_trans_completed",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.transactions.period",
+      "rename": "seller_trans_period",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.transactions.ratings.negative",
+      "rename": "seller_trans_rating_negative",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.transactions.ratings.neutral",
+      "rename": "seller_trans_rating_neutral",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.transactions.ratings.positive",
+      "rename": "seller_trans_rating_positive",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.transactions.total",
+      "rename": "seller_trans_total",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.metrics.sales.period",
+      "rename": "seller_metric_sales_period",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.sales.completed",
+      "rename": "seller_metric_sales_completed",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.metrics.claims.period",
+      "rename": "seller_metrics_claims_period",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.claims.rate",
+      "rename": "seller_metrics_claims_rate",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.metrics.claims.value",
+      "rename": "seller_metrics_claims_value",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.metrics.delayed_handling_time.period",
+      "rename": "saller_metrics_delayed_period",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.delayed_handling_time.rate",
+      "rename": "seller_metrics_delayed_rate",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.metrics.delayed_handling_time.value",
+      "rename": "seller_metrics_delayed_value",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.metrics.cancellations.period",
+      "rename": "seller_metrics_cancellations_period",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.cancellations.rate",
+      "rename": "seller_metrics_cancellations_rate",
+      "selected": 1
+    },
+    {
+      "name": "seller.seller_reputation.metrics.cancellations.value",
+      "rename": "seller_metrics_cancellations_value",
+      "selected": 1
+    },
+    {
+      "name": "seller_address.comment",
+      "rename": "seller_address.comment",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.address_line",
+      "rename": "seller_address.address_line",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.id",
+      "rename": "seller_address.id",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.latitude",
+      "rename": "seller_address.latitude",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.longitude",
+      "rename": "seller_address.longitude",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.country.id",
+      "rename": "seller_address.country.id",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.country.name",
+      "rename": "seller_address.country.name",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.state.id",
+      "rename": "seller_address.state.id",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.state.name",
+      "rename": "seller_address.state.name",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.city.id",
+      "rename": "seller_address.city.id",
+      "selected": 0
+    },
+    {
+      "name": "seller_address.city.name",
+      "rename": "seller_address.city.name",
+      "selected": 0
+    },
+    {
+      "name": "address.state_id",
+      "rename": "address.state_id",
+      "selected": 0
+    },
+    {
+      "name": "address.state_name",
+      "rename": "address.state_name",
+      "selected": 0
+    },
+    {
+      "name": "address.city_id",
+      "rename": "address.city_id",
+      "selected": 0
+    },
+    {
+      "name": "address.city_name",
+      "rename": "address.city_name",
+      "selected": 0
+    },
+    {
+      "name": "installments.quantity",
+      "rename": "installments.quantity",
+      "selected": 0
+    },
+    {
+      "name": "installments.amount",
+      "rename": "installments.amount",
+      "selected": 0
+    },
+    {
+      "name": "installments.rate",
+      "rename": "installments.rate",
+      "selected": 0
+    },
+    {
+      "name": "installments.currency_id",
+      "rename": "installments.currency_id",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.eshop_id",
+      "rename": "seller.eshop.eshop_id",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.seller",
+      "rename": "seller.eshop.seller",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.nick_name",
+      "rename": "seller.eshop.nick_name",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.eshop_status_id",
+      "rename": "seller.eshop.eshop_status_id",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.site_id",
+      "rename": "seller.eshop.site_id",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.eshop_experience",
+      "rename": "seller.eshop.eshop_experience",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.eshop_rubro",
+      "rename": "seller.eshop.eshop_rubro",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.eshop_locations",
+      "rename": "seller.eshop.eshop_locations",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.eshop_logo_url",
+      "rename": "seller.eshop.eshop_logo_url",
+      "selected": 0
+    },
+    {
+      "name": "official_store_name",
+      "rename": "official_store_name",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.eshop_rubro.name",
+      "rename": "seller_rubro_name",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.eshop_rubro.category_id",
+      "rename": "seller_rubro_category",
+      "selected": 0
+    },
+    {
+      "name": "seller.eshop.eshop_rubro.id",
+      "rename": "seller_rubro_id",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.claims.excluded.real_value",
+      "rename": "seller.seller_reputation.metrics.claims.excluded.real_value",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.claims.excluded.real_rate",
+      "rename": "seller.seller_reputation.metrics.claims.excluded.real_rate",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.delayed_handling_time.excluded.real_value",
+      "rename": "seller.seller_reputation.metrics.delayed_handling_time.excluded.real_value",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.delayed_handling_time.excluded.real_rate",
+      "rename": "seller.seller_reputation.metrics.delayed_handling_time.excluded.real_rate",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.cancellations.excluded.real_value",
+      "rename": "seller.seller_reputation.metrics.cancellations.excluded.real_value",
+      "selected": 0
+    },
+    {
+      "name": "seller.seller_reputation.metrics.cancellations.excluded.real_rate",
+      "rename": "seller.seller_reputation.metrics.cancellations.excluded.real_rate",
+      "selected": 0
+    },
+    {
+      "name": "variation_filters",
+      "rename": "variation_filters",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.176387115372.thumbnail",
+      "rename": "variations_data.176387115372.thumbnail",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.176387115372.ratio",
+      "rename": "variations_data.176387115372.ratio",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.176387115372.name",
+      "rename": "variations_data.176387115372.name",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.176387115372.pictures_qty",
+      "rename": "variations_data.176387115372.pictures_qty",
+      "selected": 0
+    },
+    {
+      "name": "differential_pricing.id",
+      "rename": "differential_pricing.id",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.33894447379.thumbnail",
+      "rename": "variations_data.33894447379.thumbnail",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.33894447379.ratio",
+      "rename": "variations_data.33894447379.ratio",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.33894447379.name",
+      "rename": "variations_data.33894447379.name",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.33894447379.pictures_qty",
+      "rename": "variations_data.33894447379.pictures_qty",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.33894447379.inventory_id",
+      "rename": "variations_data.33894447379.inventory_id",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.73718985639.thumbnail",
+      "rename": "variations_data.73718985639.thumbnail",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.73718985639.ratio",
+      "rename": "variations_data.73718985639.ratio",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.73718985639.name",
+      "rename": "variations_data.73718985639.name",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.73718985639.pictures_qty",
+      "rename": "variations_data.73718985639.pictures_qty",
+      "selected": 0
+    },
+    {
+      "name": "variations_data.73718985639.inventory_id",
+      "rename": "variations_data.73718985639.inventory_id",
+      "selected": 0
+    }
+  ]
+}
