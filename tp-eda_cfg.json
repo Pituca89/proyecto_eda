@@ -1,6 +1,6 @@
 {
   "uri": "",
-  "filename": "",
+  "filename": "dataset_meli.csv",
   "user": "",
   "columns": [
     {
@@ -180,17 +180,17 @@
     },
     {
       "name": "shipping.promise",
-      "rename": "shipping.promise",
+      "rename": "shipping_promise",
       "selected": 0
     },
     {
       "name": "seller.id",
-      "rename": "seller.id",
+      "rename": "seller_id",
       "selected": 1
     },
     {
       "name": "seller.nickname",
-      "rename": "seller.nickname",
+      "rename": "seller_nickname",
       "selected": 0
     },
     {
@@ -205,7 +205,7 @@
     },
     {
       "name": "seller._",
-      "rename": "seller._",
+      "rename": "seller_",
       "selected": 0
     },
     {
@@ -597,6 +597,11 @@
       "name": "variations_data.73718985639.inventory_id",
       "rename": "variations_data.73718985639.inventory_id",
       "selected": 0
+    },
+    {
+      "name": "categoria",
+      "rename": "categoria",
+      "selected": 1
     }
   ]
 }
