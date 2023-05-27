@@ -6,4 +6,8 @@ seller.seller_reputation.level_id = reemplazar vacios por no identificado
 seller.seller_reputation.power_seller_status = reemplazar vacios por no identificado
 seller.seller_reputation.transactions.ratings.positive : evaluar hacer una columna nueva categorica tipo flag, pongo en 1 si es mayor a 0,80
 
+27/5
+seller_trans_total : eliminar las filas donde vale 0
+
+
 
