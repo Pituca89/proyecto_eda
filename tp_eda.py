@@ -3,50 +3,70 @@ import matplotlib.pyplot as plt
 import seaborn as sbn
 
 path = "dataset_meli.csv"
+
 df = pd.read_csv(path, sep='|')
-df['porcent_canceladas'] = df.apply(lambda x: x['seller_trans_canceled'] / x['seller_trans_total'], axis=1)
+
+# Aplicamos transformaciones sobre los campos para lograr una mejor representación de los mismos
+df['seller_trans_canceled_rate_perc'] = df.apply(lambda x: (x['seller_trans_canceled'] / x['seller_trans_total'])*100, axis=1)
+df['seller_metrics_claims_rate_perc'] = df.apply(lambda x: x['seller_metrics_claims_rate']*100, axis=1)
+df['seller_trans_rating_negative_perc'] = df.apply(lambda x: x['seller_trans_rating_negative']*100, axis=1)
+df['seller_trans_total_formatted'] = df.apply(lambda x: x['seller_trans_total']/1000, axis=1)
+df['flag_rating_negative'] = df.apply(lambda x: 'Con rating Negativo' if x['seller_trans_rating_negative'] >= 0.05 else 'Sin rating Negativo', axis=1)
 
 plt.figure(figsize=(25, 10))
-plt.xticks(rotation=90)
-axis = sbn.barplot(data=df, y='categoria_nombre', x="seller_trans_total", errorbar=('ci', False))
+axis = sbn.barplot(data=df, y='categoria_nombre', x="seller_trans_total_formatted", errorbar=('ci', False))
+axis.set_title('Total de ventas por categoría')
+axis.set(xlabel='Categoría', ylabel='Ventas Totales')
 for i in axis.containers:
-    axis.bar_label(i, )
-plt.legend(loc='upper left', bbox_to_anchor=(1, 0.95))
+    axis.bar_label(i, fmt='%.1fK')
 axis.set_xticklabels(axis.get_xticklabels(), horizontalalignment='center', rotation=0)
 plt.show()
 
-plt.figure(figsize=(25, 10))
-plt.xticks(rotation=90)
-axis = sbn.barplot(data=df, y='categoria_nombre', x="porcent_canceladas", errorbar=('ci', False))
+# seller_trans_canceled, seller_metrics_claims_rate, seller_trans_rating_negative
+# Analizamos outliers en el dataset para cada una de las variables en cuestión
+# Observamos algunos outliers que "ensucian" de alguna forma la representación de la relación. Por ende, se deciden
+# eliminar utilizando un intervalo del 99%
+q_low = df["seller_metrics_claims_rate_perc"].quantile(0.01)
+q_hi = df["seller_metrics_claims_rate_perc"].quantile(0.99)
+df_f = df[(df["seller_metrics_claims_rate_perc"] < q_hi) & (df["seller_metrics_claims_rate_perc"] > q_low)]
+
+q_low = df_f["seller_trans_canceled_rate_perc"].quantile(0.01)
+q_hi = df_f["seller_trans_canceled_rate_perc"].quantile(0.99)
+df_f = df_f[(df_f["seller_trans_canceled_rate_perc"] < q_hi) & (df_f["seller_trans_canceled_rate_perc"] > q_low)]
+
+# Observamos que no existe relación directa entre calificaciones negativas y cancelaciones de transacciones
+figa, axa = plt.subplots(1, 2, figsize=(8, 8))
+axis = sbn.scatterplot(data=df, x="seller_metrics_claims_rate_perc", y="seller_trans_canceled_rate_perc", hue='flag_rating_negative', ax=axa[0])
+axis.set_title('Relación Reclamos - Cancelaciones (Con Outliers)')
+axis.set(xlabel='Reclamos', ylabel='Cancelaciones')
+axis.legend(title='Rating')
+
+axis = sbn.scatterplot(data=df_f, x="seller_metrics_claims_rate_perc", y="seller_trans_canceled_rate_perc", hue='flag_rating_negative', ax=axa[1])
+axis.set_title('Relación Reclamos - Cancelaciones (Sin Outliers)')
+axis.set(xlabel='Reclamos', ylabel='Cancelaciones')
+axis.legend(title='Rating')
+plt.show()
+
+
+# Se decide continuar el análisis con las categorías de mayor venta ya que se asume que son las de mayor
+# interés para el usuario
+# Alimentos y Bebidas, Belleza y Cuidado Personal, Celulares y Teléfonos, Hogar, Muebles y Jardín
+categories = ["Alimentos y Bebidas", "Belleza y Cuidado Personal", "Celulares y Teléfonos", "Hogar, Muebles y Jardín"]
+df_filtered = df_f[df_f['categoria_nombre'].isin(categories)]
+fig, ax = plt.subplots(1, 2, figsize=(8, 8))
+axis = sbn.barplot(data=df_filtered, x='categoria_nombre', y="seller_trans_canceled_rate_perc", errorbar=('ci', False), ax=ax[0], hue='flag_rating_negative')
+axis.set_title('Proporción de ventas canceladas por categoría')
+axis.set(xlabel='Categoría', ylabel='Porcentaje Cancelaciones')
 for i in axis.containers:
-    axis.bar_label(i, )
-plt.legend(loc='upper left', bbox_to_anchor=(1, 0.95))
-axis.set_xticklabels(axis.get_xticklabels(), horizontalalignment='center', rotation=0)
-plt.show()
+    axis.bar_label(i, fmt='%.2f%%')
+axis.set_xticklabels(axis.get_xticklabels(), horizontalalignment='center', rotation=30)
+axis.legend(title='Rating')
 
-# Arriba de 0.068
-categories = ['Consolas y Videojuegos', 'Ropa y Accesorios', 'Otras Categorías', 'Electrónica, Audio y Video', 'Joyas y Relojes']
-df_filtered = df[df.categoria_nombre.isin(categories)]
-
-_, ax = plt.subplots(1, 2, figsize=(25, 10))
-
-sbn.catplot(data=df_filtered, x='categoria_nombre', y='seller_trans_total', kind='box', ax=ax[0])
-q_low = df_filtered["seller_trans_total"].quantile(0.01)
-q_hi = df_filtered["seller_trans_total"].quantile(0.99)
-df_filtered = df_filtered[(df_filtered["seller_trans_total"] < q_hi) & (df_filtered["seller_trans_total"] > q_low)]
-sbn.catplot(data=df_filtered, x='categoria_nombre', y='seller_trans_total', kind='box', ax=ax[1])
-plt.show()
-
-sbn.jointplot(data=df_filtered, x="porcent_canceladas", y="seller_metrics_claims_rate", kind='hex')
-plt.show()
-sbn.scatterplot(data=df_filtered, x="porcent_canceladas", y="seller_metrics_claims_rate", hue='categoria_nombre')
-plt.show()
-
-
-_, ax = plt.subplots(1, 2, figsize=(25, 10))
-# sbn.set_palette(palette=sbn.color_palette(['green', 'blue', 'red', 'orange']))
-axisa = sbn.kdeplot(data=df_filtered, x='porcent_canceladas', hue='categoria_nombre', ax=ax[0], multiple="stack")
-axisa.set(title="Distribución de cancelaciones")
-axisb = sbn.kdeplot(data=df_filtered, x='seller_metrics_claims_rate', hue='categoria_nombre', ax=ax[1], multiple="stack")
-axisb.set(title="Distribución de rating negativos")
+axis = sbn.barplot(data=df_filtered, x='categoria_nombre', y="seller_metrics_claims_rate_perc", errorbar=('ci', False), ax=ax[1], hue='flag_rating_negative')
+axis.set_title('Proporción de reclamos por categoría')
+axis.set(xlabel='Categoría', ylabel='Porcentaje reclamos')
+for i in axis.containers:
+    axis.bar_label(i, fmt='%.2f%%')
+axis.set_xticklabels(axis.get_xticklabels(), horizontalalignment='center', rotation=30)
+axis.legend(title='Rating')
 plt.show()
