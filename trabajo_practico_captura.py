@@ -135,5 +135,6 @@ df['power_seller_status'] = df['power_seller_status'].map(lambda x: reemplaza_va
 
 df = df[df['condition'] == "new"]
 df = df[df['buying_mode'] == "buy_it_now"]
+df = df[df['seller_trans_total'] != 0]
 
 
