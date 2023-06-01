@@ -156,13 +156,16 @@ df_agg = df.groupby('category_name').agg(
     }
 ).reset_index()
 agg_fields = ['claims_value', 'delayed_value', 'cancellations_value']
-df_agg = df_agg.sort_values(by=agg_fields, ascending=False, ignore_index=True).head(4)
+df_agg = df_agg \
+    .sort_values(by=agg_fields, ascending=False, ignore_index=True) \
+    .head(4)
+
+
 
 df_agg['total_p'] = df_agg.apply(lambda x: x['claims_value'] + x['delayed_value'] + x['cancellations_value'], axis=1)
 df_agg['claims_value_p'] = df_agg.apply(lambda x: x['claims_value'] / x['total_p'], axis=1)
 df_agg['delayed_value_p'] = df_agg.apply(lambda x: x['delayed_value'] / x['total_p'], axis=1)
 df_agg['cancellations_value_p'] = df_agg.apply(lambda x: x['cancellations_value'] / x['total_p'], axis=1)
-
 
 ax = sbn.barplot(data=df_agg, x='category_name', y='claims_value_p', color='red', label='Reclamos')
 ax = sbn.barplot(data=df_agg, x='category_name', y='delayed_value_p', color='green', label='Demoras')

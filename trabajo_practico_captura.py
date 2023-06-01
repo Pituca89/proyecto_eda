@@ -41,11 +41,11 @@ LIMIT_RESPONSE = 10
 FILE_CONFIG = 'tp-eda_cfg.json'
 
 
-#Función que lee el archivo de configuración donde indicamos:
-#el nombre de las columnas
-#rename de las columnas
-#Un flag 0 ó 1 de si se necesitan para el analisis o no
-#Nombre del archivo de escritura
+# Función que lee el archivo de configuración donde indicamos:
+# el nombre de las columnas
+# rename de las columnas
+# Un flag 0 ó 1 de si se necesitan para el analisis o no
+# Nombre del archivo de escritura
 def read_config(file):
     try:
         with open(file, 'r') as f:
@@ -53,9 +53,10 @@ def read_config(file):
     except IOError:
         exit(1)
 
-#Función que realiza la integración con la API, se encarga de capturar la información devolviendo el listado de items
-#junto con que categoria pertenece cada caso
-#Para obtener la informacion de los items primero se accedio a  "/sites/MLA/categories"
+
+# Función que realiza la integración con la API, se encarga de capturar la información devolviendo el listado de items
+# junto con que categoria pertenece cada caso
+# Para obtener la informacion de los items primero se accedio a  "/sites/MLA/categories"
 # y luego con el id de categoria se obtuvieron los items del dataset
 def get_items():
     params = {
@@ -106,16 +107,33 @@ def get_items():
 
 config = read_config(FILE_CONFIG)
 columns = config.get('columns')
-#Se arma un array con los nombres de las columnas, indicando selected==1 para quedarnos unicamente
-#con las que vamos a utilizar
+# Se arma un array con los nombres de las columnas, indicando selected==1 para quedarnos unicamente
+# con las que vamos a utilizar
 columns_selected = [column.get('name') for column in columns if column.get('selected') == 1]
-#Se arma un diccionario con los nombres de las columnas y su correspondientes nuevos nombres
-#Tambien se indica que filtre por selected==1 para que únicamente lo cree sobre las columnas a analizar
+# Se arma un diccionario con los nombres de las columnas y su correspondientes nuevos nombres
+# Tambien se indica que filtre por selected==1 para que únicamente lo cree sobre las columnas a analizar
 columns_renamed = {column.get('name'): column.get('rename') for column in columns if column.get('selected') == 1}
 
 df = get_items()
 df = df[columns_selected]
 df = df.rename(columns=columns_renamed)
 
-#Se guarda la muestra obtenida en un CSV, cuyo nombre se encuentra informado en el archivo de configuración.
+# Se guarda la muestra obtenida en un CSV, cuyo nombre se encuentra informado en el archivo de configuración.
 df.to_csv(config.get('filename'), index=False, sep=',', encoding='utf-8')
+
+
+def reemplaza_vacios(x, leyenda):
+    if not x:
+        return leyenda
+    else:
+        return x
+
+
+df['seller_level_id'] = df['seller_level_id'].map(lambda x: reemplaza_vacios(x, "No identificado"))
+df['power_seller_status'] = df['power_seller_status'].map(lambda x: reemplaza_vacios(x, "sin_categoria"))
+
+
+df = df[df['condition'] == "new"]
+df = df[df['buying_mode'] == "buy_it_now"]
+
+
