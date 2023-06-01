@@ -52,7 +52,12 @@ def read_config(file):
             return json.loads(f.read())
     except IOError:
         exit(1)
-
+#Función que imputa los atributos nulos o vacios.
+def reemplaza_vacios(x, leyenda):
+    if not x:
+        return leyenda
+    else:
+        return x
 
 # Función que realiza la integración con la API, se encarga de capturar la información devolviendo el listado de items
 # junto con que categoria pertenece cada caso
@@ -118,23 +123,12 @@ df = get_items()
 df = df[columns_selected]
 df = df.rename(columns=columns_renamed)
 
-# Se guarda la muestra obtenida en un CSV, cuyo nombre se encuentra informado en el archivo de configuración.
-df.to_csv(config.get('filename'), index=False, sep=',', encoding='utf-8')
-
-
-def reemplaza_vacios(x, leyenda):
-    if not x:
-        return leyenda
-    else:
-        return x
-
-
 df['seller_level_id'] = df['seller_level_id'].map(lambda x: reemplaza_vacios(x, "No identificado"))
 df['power_seller_status'] = df['power_seller_status'].map(lambda x: reemplaza_vacios(x, "sin_categoria"))
-
 
 df = df[df['condition'] == "new"]
 df = df[df['buying_mode'] == "buy_it_now"]
 df = df[df['seller_trans_total'] != 0]
 
-
+# Se guarda la muestra obtenida en un CSV, cuyo nombre se encuentra informado en el archivo de configuración.
+df.to_csv(config.get('filename'), index=False, sep=',', encoding='utf-8')
